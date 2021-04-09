@@ -1,8 +1,178 @@
-<html>
+<!DOCTYPE html>
 
+<html lang="en">
+<style>
+  html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* :root {
+  --pomodoro: hsl(0, 96%, 51%);
+  --shortBreak: hsl(93, 84%, 38%);
+  --longBreak: hsl(214, 100%, 63%);
+} */
+
+body{
+    background-color: #ffdfbd;
+    border-style: solid;
+    border-color: #ff3f3e;
+}
+
+  progress {
+  border-radius: 2px;
+  width: 100%;
+  height: 12px;
+  position: fixed;
+  top: 0;
+}
+
+progress::-webkit-progress-bar {
+ background-color: rgba(0, 0, 0, 0.1);;
+}
+
+progress::-webkit-progress-value {
+  /* background-color: #fff; */
+  background-color: #ff3f3e;
+}
+
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+
+.clock {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  font-family: arial, sans-serif;
+}
+
+.mode-button {
+  font-size: 16px;
+  height: 28px;
+  cursor: pointer;
+  box-shadow: none;
+  font-weight: 300;
+  color: #fff;
+  border: 1px solid transparent;
+  margin: 0px;
+  border-radius: 4px;
+  padding: 2px 12px;
+  background: none;
+}
+
+.mode-button.active {
+  border-color: #fff;
+}
+
+.main-button {
+  cursor: pointer;
+  box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+  font-size: 22px;
+  height: 35px;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  width: 150px;
+  background-color: white;
+  border-width: initial;
+  border-style: none;
+  margin: 20px 0px 0px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  transition: color 0.5s ease-in-out 0s;
+}
+
+button:focus, button:active {
+  outline: none;
+}
+
+.main-button.active {
+  transform: translateY(6px);
+  box-shadow: none;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* @media screen and (max-width: 150px) {
+  .clock {
+    font-size: 8rem;
+  }
+} */
+
+img.animated-gif{
+  width: 350px;
+  height: auto;
+}
+
+
+</style>
+
+<head>
+  <title>POMODORO TIMER</title>
+</head>
 
 <body>
-  <h1>Hello Pomodoro!</h1>
+  <!-- <h1>Start Pomodoro!</h1> -->
+  <img class="animated-gif" src= "/assets/runningt.gif">
+  <!-- <img src= "/assests/chillmato.gif" id="shortb" class="hidden">  not working yet-->
+  
+
+  <main class="app">
+    <progress id="js-progress" value="0"></progress>
+    <div class="progress-bar"></div>
+    <div class="timer">
+      <div class="button-group mode-buttons" id="js-mode-buttons">
+        <button
+          data-mode="pomodoro"
+          class="button active mode-button"
+          id="js-pomodoro"
+        >
+          Pomodoro
+        </button>
+        <button 
+          data-mode="shortBreak"
+          class="button mode-button"
+          id="js-short-break"
+          
+        >
+          Short break
+        </button>
+        <button
+          data-mode="longBreak"
+          class="button mode-button"
+          id="js-long-break"
+        >
+          Long break
+        </button>
+      </div>
+      <div class="clock" id="js-clock">
+        <span id="js-minutes">25</span>
+        <span class="separator">:</span>
+        <span id="js-seconds">00</span>
+      </div>
+      <button class="main-button" data-action="start" id="js-btn">
+        Start
+      </button>
+    </div>
+  </main>
+  <script src="popup.js"></script>
 </body>
 
 

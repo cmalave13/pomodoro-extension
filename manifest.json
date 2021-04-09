@@ -9,7 +9,7 @@
   },
   "options_page": "./options.html",
   "browser_action" : {
-//   "default_icon": "ct.png", -- this will be our tomato icon, found in the files folder
+    "default_icon": "assets/tomato.png", //-- this will be our tomato icon, found in the files folder
   "default_popup": "popup.html",
   "default_title": "Pomodoro"
   },

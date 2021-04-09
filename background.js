@@ -15,7 +15,6 @@ contextMenus.createPomCounter = chrome.contextMenus.create(
 // 
 const contextMenuHandler = (info, tab) => {
   if (info.menuItemId === contextMenus.createPomCounter) {
-    console.log('test')
     chrome.tabs.executeScript({
       file: "popup.js"
     });
