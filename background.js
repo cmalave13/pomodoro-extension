@@ -12,11 +12,15 @@ contextMenus.createPomCounter = chrome.contextMenus.create(
 );
 
 
-
+// 
 const contextMenuHandler = (info, tab) => {
   if (info.menuItemId === contextMenus.createPomCounter) {
-    console.log('menu clicked');
+    console.log('test')
+    chrome.tabs.executeScript({
+      file: "popup.js"
+    });
   }
 }
 
+// listens for click event on menu icon
 chrome.contextMenus.onClicked.addListener(contextMenuHandler);
