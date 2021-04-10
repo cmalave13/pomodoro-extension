@@ -36,8 +36,8 @@ function getRemainingTime(endTime) {
     seconds,
   };
 }
-
-// <---------START TIMER---------->
+// 
+//  <---------START TIMER---------->
 function startTimer() {
   let { total } = timer.remainingTime;
   const endTime = Date.parse(new Date()) + total * 1000;
@@ -106,7 +106,9 @@ function switchMode(mode) {
     total: timer[mode] * 60,
     minutes: timer[mode],
     seconds: 0,
+   
   };
+  // 
 
   document
     .querySelectorAll('button[data-mode]')
@@ -117,8 +119,9 @@ function switchMode(mode) {
   .getElementById('js-progress')
   .setAttribute('max', timer.remainingTime.total); // adjusts progress bar
 
-
   updateClock();
+  if(mode !== 'pomodoro') alert('Great job! Time for a break!')
+
 }
 
 function handleMode(event) {
@@ -127,7 +130,9 @@ function handleMode(event) {
   if (!mode) return;
 
   switchMode(mode); // when changing modes
+
   stopTimer(); // ensures this automatically stops the timer
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
